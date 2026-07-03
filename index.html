@@ -1451,13 +1451,13 @@ footer {
   function loadEmbeddedVideo() {
     video.src = EMBEDDED_VIDEO_SRC;
     video.load();
+    dropOverlay.classList.add('hidden');
+    dropOverlay.style.display = 'none';
+    reveal();
     video.onloadedmetadata = function () {
       videoLoaded = true;
       resizeCanvases();
-      dropOverlay.classList.add('hidden');
-      setTimeout(function () { dropOverlay.style.display = 'none'; }, 900);
       video.currentTime = 0;
-      reveal();
     };
   }
 
